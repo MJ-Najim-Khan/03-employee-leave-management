@@ -1,0 +1,923 @@
+/* ---------------------------------------------------------------
+   Tokens
+   ------------------------------------------------------------- */
+:root {
+  --ink: #1C2430;
+  --ink-soft: #667085;
+  --canvas: #F4F5F7;
+  --surface: #FFFFFF;
+  --line: #E2E5EA;
+  --line-strong: #D3D8E0;
+
+  --accent: #0E6B5C;
+  --accent-hover: #0B5A4D;
+  --accent-light: #12876F;
+  --accent-tint: #E8F3F0;
+
+  --danger: #B42318;
+  --danger-hover: #942015;
+  --danger-light: #D0362A;
+  --warning: #B45309;
+  --warning-hover: #92400E;
+  --warning-light: #D3730F;
+
+  --radius: 14px;
+  --radius-sm: 9px;
+
+  /* Elevation scale — near-shadow gives edge definition, far-shadow
+     gives the soft ambient falloff that reads as real depth rather
+     than a single grey smear. */
+  --shadow-xs: 0 1px 2px rgba(20, 24, 33, 0.05);
+  --shadow-sm: 0 1px 2px rgba(20, 24, 33, 0.05), 0 4px 10px -4px rgba(20, 24, 33, 0.08);
+  --shadow-md: 0 2px 4px rgba(20, 24, 33, 0.05), 0 12px 28px -8px rgba(20, 24, 33, 0.12);
+  --shadow-lg: 0 4px 8px rgba(20, 24, 33, 0.06), 0 24px 48px -12px rgba(20, 24, 33, 0.18);
+  --shadow-pressed: inset 0 1px 3px rgba(20, 24, 33, 0.22);
+
+  /* Top-edge highlight — a 1px lighter line simulating a light
+     source above the surface. Applied as an inset box-shadow so it
+     stacks with the elevation shadows. */
+  --edge-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+  --shadow: var(--shadow-md);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto,
+    Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+/* ---------------------------------------------------------------
+   Primary surfaces — the only elements that get the "card" treatment.
+   Layered shadow + a 1px inner top highlight gives the panel a
+   slight physical lift off the canvas rather than sitting flush.
+   ------------------------------------------------------------- */
+
+.card,
+.dashboard {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md), var(--edge-highlight);
+}
+
+/* ---------------------------------------------------------------
+   Forms — inputs read as recessed (grooved into the surface),
+   the inverse of the raised buttons below. That contrast is what
+   makes both read as three-dimensional rather than flat with a
+   shadow slapped on.
+   ------------------------------------------------------------- */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: inset 0 1px 3px rgba(20, 24, 33, 0.05);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: #B7BEC9;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: inset 0 1px 3px rgba(20, 24, 33, 0.05), 0 0 0 3px var(--accent-tint);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* ---------------------------------------------------------------
+   Buttons — raised by default (gradient + top highlight + a soft
+   colored shadow that reads as the button's own cast shadow), and
+   they physically depress on click: shadow flips to an inset groove
+   and the button nudges down a pixel.
+   ------------------------------------------------------------- */
+
+button {
+  padding: 11px 18px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, var(--accent-light) 0%, var(--accent) 100%);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: var(--edge-highlight), 0 1px 2px rgba(14, 107, 92, 0.15),
+    0 8px 16px -6px rgba(14, 107, 92, 0.45);
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+}
+
+button:hover {
+  background: linear-gradient(180deg, #159981 0%, var(--accent-hover) 100%);
+  box-shadow: var(--edge-highlight), 0 1px 2px rgba(14, 107, 92, 0.18),
+    0 12px 22px -6px rgba(14, 107, 92, 0.5);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: var(--shadow-pressed);
+  background: var(--accent-hover);
+}
+
+button:focus-visible {
+  outline: none;
+  box-shadow: var(--edge-highlight), 0 0 0 3px var(--accent-tint);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+  button:active,
+  button:hover {
+    transform: none;
+  }
+}
+
+.logout-button {
+  display: block;
+  margin: 0 auto 20px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-xs);
+}
+
+.logout-button:hover {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-sm);
+  transform: none;
+}
+
+.logout-button:active {
+  box-shadow: var(--shadow-pressed);
+}
+
+/* ---------------------------------------------------------------
+   Login screen
+   ------------------------------------------------------------- */
+
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: radial-gradient(circle at 50% 0%, #fafbfc 0%, var(--canvas) 60%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  margin: 0;
+  text-align: center;
+  box-shadow: var(--shadow-lg), var(--edge-highlight);
+}
+
+.login-card h2 {
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  margin: 4px 0 4px;
+}
+
+.login-subtitle {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  margin: 0 0 24px;
+}
+
+.login-card form {
+  text-align: left;
+}
+
+.brand-mark {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  box-shadow: 0 2px 5px rgba(14, 107, 92, 0.4);
+  margin-bottom: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.password-field {
+  position: relative;
+  display: flex;
+}
+
+.password-field input {
+  padding-right: 40px;
+}
+
+.toggle-visibility {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--ink-soft);
+  box-shadow: none;
+}
+
+.toggle-visibility:hover {
+  background: var(--canvas);
+  color: var(--ink);
+  box-shadow: none;
+  transform: translateY(-50%);
+}
+
+.toggle-visibility:active {
+  box-shadow: none;
+  transform: translateY(-50%) scale(0.94);
+}
+
+.submit-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}
+
+.form-message {
+  margin: 16px 0 0;
+  padding: 10px 13px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  text-align: left;
+  box-shadow: var(--shadow-xs);
+}
+
+.form-message--success {
+  background: var(--accent-tint);
+  color: #0B4A3F;
+  border: 1px solid #CDE7E0;
+}
+
+.form-message--error {
+  background: #FBEAE9;
+  color: var(--danger-hover);
+  border: 1px solid #F3C7C3;
+}
+
+.login-footnote {
+  margin: 18px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   Balance grid — each cell tilts very slightly on hover using a
+   real 3D transform (perspective + rotate), not just a flat
+   translateY lift, so it reads as a tile pivoting toward the
+   cursor rather than a card sliding up.
+   ------------------------------------------------------------- */
+
+.balance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 30px;
+  perspective: 900px;
+}
+
+.balance-card {
+  padding: 20px 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  border-top: 2px solid var(--accent);
+  box-shadow: var(--shadow-sm), var(--edge-highlight);
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.balance-card:hover {
+  transform: translateY(-3px) rotateX(4deg);
+  box-shadow: var(--shadow-md), var(--edge-highlight);
+}
+
+.balance-card:nth-child(3n+2) {
+  border-top-color: #2563A8;
+}
+
+.balance-card:nth-child(3n) {
+  border-top-color: var(--warning);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .balance-card {
+    transition: none;
+  }
+  .balance-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .balance-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Leave request card
+   ------------------------------------------------------------- */
+
+.leave-card {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  background: var(--canvas);
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 3px rgba(20, 24, 33, 0.04);
+}
+
+.leave-card h3 {
+  margin-top: 0;
+  font-size: 15.5px;
+  letter-spacing: -0.01em;
+}
+
+.leave-card textarea {
+  margin-top: 10px;
+  width: 100%;
+  min-height: 90px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.reject-button {
+  background: linear-gradient(180deg, var(--danger-light) 0%, var(--danger) 100%);
+  box-shadow: var(--edge-highlight), 0 1px 2px rgba(180, 35, 24, 0.15),
+    0 8px 16px -6px rgba(180, 35, 24, 0.45);
+}
+
+.reject-button:hover {
+  background: linear-gradient(180deg, #DE4B3E 0%, var(--danger-hover) 100%);
+  box-shadow: var(--edge-highlight), 0 1px 2px rgba(180, 35, 24, 0.18),
+    0 12px 22px -6px rgba(180, 35, 24, 0.5);
+}
+
+.reject-button:active {
+  background: var(--danger-hover);
+  box-shadow: var(--shadow-pressed);
+}
+
+.message {
+  margin: 15px 0;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-tint);
+  color: #0B4A3F;
+  border: 1px solid #CDE7E0;
+  box-shadow: var(--shadow-xs);
+}
+
+.cancel-button {
+  background: linear-gradient(180deg, var(--warning-light) 0%, var(--warning) 100%);
+  box-shadow: var(--edge-highlight), 0 1px 2px rgba(180, 83, 9, 0.15),
+    0 8px 16px -6px rgba(180, 83, 9, 0.45);
+  margin-top: 10px;
+}
+
+.cancel-button:hover {
+  background: linear-gradient(180deg, #E4870F 0%, var(--warning-hover) 100%);
+  box-shadow: var(--edge-highlight), 0 1px 2px rgba(180, 83, 9, 0.18),
+    0 12px 22px -6px rgba(180, 83, 9, 0.5);
+}
+
+.cancel-button:active {
+  background: var(--warning-hover);
+  box-shadow: var(--shadow-pressed);
+}
+
+/* ---------------------------------------------------------------
+   Admin dashboard
+   ------------------------------------------------------------- */
+
+.admin-dashboard {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.admin-section {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+  padding: 28px;
+  margin-bottom: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md), var(--edge-highlight);
+}
+
+.admin-section h2 {
+  margin-top: 0;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+
+/* Rows read as a list, not stacked cards — dividers do the work.
+   A very slight inset shadow on hover gives the row a "pressed
+   into the surface" feel instead of just a flat color swap. */
+.admin-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.12s ease, box-shadow 0.12s ease;
+}
+
+.admin-row:hover {
+  background: var(--canvas);
+  box-shadow: inset 0 1px 2px rgba(20, 24, 33, 0.04);
+  border-radius: 6px;
+}
+
+.admin-row:last-child {
+  border-bottom: none;
+}
+
+.admin-section form {
+  margin-top: 20px;
+}
+
+.disable-button {
+  margin-left: 12px;
+  background: linear-gradient(180deg, var(--danger-light) 0%, var(--danger) 100%);
+  box-shadow: var(--edge-highlight), 0 1px 2px rgba(180, 35, 24, 0.15),
+    0 8px 16px -6px rgba(180, 35, 24, 0.45);
+}
+
+.disable-button:hover {
+  background: linear-gradient(180deg, #DE4B3E 0%, var(--danger-hover) 100%);
+}
+
+.disable-button:active {
+  background: var(--danger-hover);
+  box-shadow: var(--shadow-pressed);
+}
+
+/* Document rows, likewise, are a list — not boxed cards */
+.document-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 4px;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  transition: background 0.12s ease, box-shadow 0.12s ease;
+}
+
+.document-row:hover {
+  background: var(--canvas);
+  box-shadow: inset 0 1px 2px rgba(20, 24, 33, 0.04);
+  border-radius: 6px;
+}
+
+.document-row:last-child {
+  border-bottom: none;
+}
+
+.document-row div {
+  flex: 1;
+}
+
+/* ---------------------------------------------------------------
+   Employee dashboard additions
+   ------------------------------------------------------------- */
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.dashboard-header h1 {
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.employee-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.employee-switcher label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.employee-switcher input {
+  width: 72px;
+  padding: 7px 9px;
+}
+
+.message--error {
+  background: #FBEAE9;
+  color: var(--danger-hover);
+  border: 1px solid #F3C7C3;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.section h2 {
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.empty-state {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  padding: 18px 0;
+}
+
+/* Balance card content hierarchy */
+
+.balance-card h3 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.balance-value {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.balance-caption {
+  margin: 4px 0 10px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+.balance-meta {
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* Skeleton loading state */
+
+.skeleton {
+  min-height: 108px;
+  background: linear-gradient(
+    100deg,
+    var(--canvas) 30%,
+    #ECEEF1 50%,
+    var(--canvas) 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.3s ease-in-out infinite;
+  border-top-color: var(--line) !important;
+  box-shadow: none;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: -50% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}
+
+/* Status badges — a thin inset top highlight gives each pill a
+   slight convex, enamel-pin quality instead of a flat rounded tag. */
+
+.status-badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 1px rgba(20, 24, 33, 0.04);
+}
+
+.status-badge--pending {
+  background: #FDF0E1;
+  color: var(--warning-hover);
+}
+
+.status-badge--approved {
+  background: var(--accent-tint);
+  color: #0B4A3F;
+}
+
+.status-badge--rejected {
+  background: #FBEAE9;
+  color: var(--danger-hover);
+}
+
+.status-badge--cancelled {
+  background: var(--canvas);
+  color: var(--ink-soft);
+  box-shadow: none;
+}
+
+/* Leave card content hierarchy */
+
+.leave-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.leave-card__head h3 {
+  font-size: 14.5px;
+}
+
+.leave-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px;
+  margin: 4px 0 10px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+.leave-reason {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--ink);
+}
+
+.leave-note {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-left: 2px solid var(--line-strong);
+  background: var(--surface);
+  border-radius: 0 6px 6px 0;
+  box-shadow: var(--shadow-xs);
+}
+
+.leave-note__label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 2px;
+}
+
+.leave-note p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* ---------------------------------------------------------------
+   Summary grid — same pivot-tilt treatment as the balance grid,
+   plus the corner glow now sits on a raised surface so the color
+   reads as a light source rather than a printed wash.
+   ------------------------------------------------------------- */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+  perspective: 900px;
+}
+
+.summary-card {
+  --card-color: #4f46e5;
+  --card-tint: #eef0fd;
+
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 14px;
+  background: linear-gradient(155deg, var(--card-tint) 0%, #ffffff 65%);
+  border: 1px solid color-mix(in srgb, var(--card-color) 22%, #e1e6ef);
+  text-align: left;
+  box-shadow: var(--shadow-sm), var(--edge-highlight);
+  transform-style: preserve-3d;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+/* A colored corner glow, not a flat wash — reads as light, not paint */
+.summary-card::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--card-color);
+  opacity: 0.18;
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px) rotateX(5deg) rotateY(-2deg);
+  border-color: var(--card-color);
+  box-shadow: 0 16px 32px -10px color-mix(in srgb, var(--card-color) 40%, transparent),
+    var(--edge-highlight);
+}
+
+.summary-card h3 {
+  margin: 0 0 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--card-color) 65%, #4b5566);
+  letter-spacing: 0.01em;
+}
+
+.summary-card p {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1c2430;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Assign a color per card automatically, in order — remove any you
+   don't need, or override per-card with an inline style/data attribute
+   if a specific stat should always be a specific color (e.g. red for
+   "Rejected"). */
+.summary-card:nth-of-type(6n + 1) {
+  --card-color: #4f46e5; /* indigo */
+  --card-tint: #eef0fd;
+}
+.summary-card:nth-of-type(6n + 2) {
+  --card-color: #059669; /* emerald */
+  --card-tint: #e9f8f1;
+}
+.summary-card:nth-of-type(6n + 3) {
+  --card-color: #db2777; /* rose */
+  --card-tint: #fdedf3;
+}
+.summary-card:nth-of-type(6n + 4) {
+  --card-color: #d97706; /* amber */
+  --card-tint: #fdf3e6;
+}
+.summary-card:nth-of-type(6n + 5) {
+  --card-color: #0891b2; /* cyan */
+  --card-tint: #e7f6f9;
+}
+.summary-card:nth-of-type(6n + 6) {
+  --card-color: #7c3aed; /* violet */
+  --card-tint: #f2edfd;
+}
+
+/* Manual overrides, if you'd rather assign color by meaning than by
+   position — add e.g. className="summary-card summary-card--danger" */
+.summary-card--success {
+  --card-color: #059669;
+  --card-tint: #e9f8f1;
+}
+.summary-card--warning {
+  --card-color: #d97706;
+  --card-tint: #fdf3e6;
+}
+.summary-card--danger {
+  --card-color: #db2777;
+  --card-tint: #fdedf3;
+}
+.summary-card--info {
+  --card-color: #0891b2;
+  --card-tint: #e7f6f9;
+}
+.summary-card--accent {
+  --card-color: #7c3aed;
+  --card-tint: #f2edfd;
+}
+
+.summary-card:focus-visible {
+  outline: 2px solid var(--card-color);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .summary-card {
+    transition: none;
+  }
+  .summary-card:hover {
+    transform: none;
+  }
+}
