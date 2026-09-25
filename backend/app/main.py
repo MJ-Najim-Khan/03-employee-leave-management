@@ -29,6 +29,10 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://d2hzg5hj2i2lr0.cloudfront.net"
+
+         "https://mjnazim.online",       # Root domain
+        "https://www.mjnazim.online",   # WWW subdomain
+        "https://ems.mjnazim.online",   # EMS subdomain
     ],
     allow_credentials=True,
     allow_methods=["*"],
