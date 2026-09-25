@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" font-family="-apple-system, 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#fafbfc"/>
+      <stop offset="60%" stop-color="#F4F5F7"/>
+    </radialGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#12876F"/>
+      <stop offset="100%" stop-color="#0E6B5C"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <!-- Card -->
+  <rect x="410" y="150" width="380" height="500" rx="14" fill="#ffffff" stroke="#E2E5EA"/>
+
+  <!-- Brand mark -->
+  <rect x="585" y="200" width="11" height="11" rx="3" fill="#0E6B5C"/>
+
+  <!-- Headings -->
+  <text x="600" y="248" text-anchor="middle" font-size="19" font-weight="600" fill="#1C2430">Employee Leave Management</text>
+  <text x="600" y="272" text-anchor="middle" font-size="13.5" fill="#667085">Sign in with your work account.</text>
+
+  <!-- Username field -->
+  <text x="430" y="322" font-size="12.5" font-weight="600" fill="#667085">Username</text>
+  <rect x="430" y="332" width="340" height="42" rx="9" fill="#ffffff" stroke="#D3D8E0"/>
+  <text x="443" y="358" font-size="13.5" fill="#1C2430">jane.doe</text>
+
+  <!-- Password field -->
+  <text x="430" y="402" font-size="12.5" font-weight="600" fill="#667085">Password</text>
+  <rect x="430" y="412" width="340" height="42" rx="9" fill="#ffffff" stroke="#D3D8E0"/>
+  <text x="443" y="438" font-size="13.5" fill="#1C2430">••••••••••</text>
+
+  <!-- Sign in button -->
+  <rect x="430" y="482" width="340" height="44" rx="9" fill="url(#btn)"/>
+  <text x="600" y="509" text-anchor="middle" font-size="13.5" font-weight="600" fill="#ffffff">Sign in</text>
+
+  <!-- Footnote -->
+  <text x="600" y="590" text-anchor="middle" font-size="12.5" fill="#667085">Trouble signing in? Contact your admin.</text>
+</svg>

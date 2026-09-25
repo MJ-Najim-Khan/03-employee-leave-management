@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" font-family="-apple-system, 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="btn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#12876F"/>
+      <stop offset="100%" stop-color="#0E6B5C"/>
+    </linearGradient>
+    <linearGradient id="reject" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D0362A"/>
+      <stop offset="100%" stop-color="#B42318"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="820" fill="#F4F5F7"/>
+
+  <!-- Topbar -->
+  <rect width="1200" height="60" fill="#12141C"/>
+  <rect x="24" y="25" width="10" height="10" rx="3" fill="#2563A8"/>
+  <text x="44" y="36" font-size="15" font-weight="600" fill="#F5F5F4">Workspace</text>
+  <rect x="1030" y="20" width="76" height="20" rx="10" fill="#EAF2FB"/>
+  <text x="1068" y="34" text-anchor="middle" font-size="12.5" font-weight="600" fill="#2563A8">Manager</text>
+  <circle cx="1128" cy="30" r="15" fill="none" stroke="#2563A8" stroke-width="1.5"/>
+  <text x="1128" y="35" text-anchor="middle" font-size="11.5" font-weight="700" fill="#F5F5F4">M</text>
+  <text x="1160" y="35" font-size="13" font-weight="500" fill="#E5E5E3">Log out</text>
+
+  <!-- Header -->
+  <text x="200" y="108" font-size="20" font-weight="600" fill="#1C2430">Manager Dashboard</text>
+  <text x="200" y="128" font-size="12.5" fill="#667085">Review and manage pending employee leave requests.</text>
+  <rect x="920" y="92" width="80" height="26" rx="13" fill="#EAF2FB"/>
+  <text x="960" y="109" text-anchor="middle" font-size="12.5" font-weight="600" fill="#2563A8">2 pending</text>
+
+  <!-- Summary -->
+  <rect x="200" y="146" width="240" height="86" rx="9" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="216" y="170" font-size="12" font-weight="500" fill="#667085">Team Members</text>
+  <text x="216" y="210" font-size="34" font-weight="650" fill="#1C2430">6</text>
+
+  <rect x="456" y="146" width="240" height="86" rx="9" fill="#FDF0E1" stroke="#F1E0C6"/>
+  <text x="472" y="170" font-size="12" font-weight="500" fill="#667085">Pending Requests</text>
+  <text x="472" y="210" font-size="26" font-weight="650" fill="#1C2430">2</text>
+
+  <rect x="712" y="146" width="240" height="86" rx="9" fill="#E8F3F0" stroke="#CDE7E0"/>
+  <text x="728" y="170" font-size="12" font-weight="500" fill="#667085">Approved</text>
+  <text x="728" y="210" font-size="26" font-weight="650" fill="#1C2430">11</text>
+
+  <rect x="968" y="146" width="32" height="86" rx="9" fill="#FBEAE9" stroke="#F3C7C3"/>
+  <text x="984" y="170" font-size="12" font-weight="500" fill="#667085">Rej.</text>
+  <text x="984" y="210" font-size="26" font-weight="650" fill="#1C2430">3</text>
+
+  <!-- Leave request card 1 -->
+  <rect x="200" y="256" width="800" height="240" rx="14" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="224" y="288" font-size="14.5" font-weight="600" fill="#1C2430">Leave Request #12</text>
+  <text x="920" y="288" font-size="12.5" fill="#667085">Jun 10, 2026 – Jun 12, 2026</text>
+  <text x="224" y="312" font-size="12.5" fill="#667085">Employee #4 · Type #1</text>
+  <text x="224" y="336" font-size="13.5" fill="#1C2430">Family function</text>
+
+  <text x="224" y="376" font-size="12.5" font-weight="600" fill="#667085">Comment (optional)</text>
+  <rect x="224" y="386" width="776" height="56" rx="9" fill="#ffffff" stroke="#D3D8E0"/>
+
+  <rect x="224" y="458" width="120" height="34" rx="9" fill="url(#btn)"/>
+  <text x="284" y="480" text-anchor="middle" font-size="13.5" font-weight="600" fill="#ffffff">Approve</text>
+  <rect x="356" y="458" width="120" height="34" rx="9" fill="url(#reject)"/>
+  <text x="416" y="480" text-anchor="middle" font-size="13.5" font-weight="600" fill="#ffffff">Reject</text>
+
+  <!-- Leave request card 2 -->
+  <rect x="200" y="520" width="800" height="240" rx="14" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="224" y="552" font-size="14.5" font-weight="600" fill="#1C2430">Leave Request #13</text>
+  <text x="920" y="552" font-size="12.5" fill="#667085">Jun 20, 2026 – Jun 20, 2026</text>
+  <text x="224" y="576" font-size="12.5" fill="#667085">Employee #7 · Type #2</text>
+  <text x="224" y="600" font-size="13.5" fill="#1C2430">Doctor's appointment</text>
+
+  <text x="224" y="640" font-size="12.5" font-weight="600" fill="#667085">Comment (optional)</text>
+  <rect x="224" y="650" width="776" height="56" rx="9" fill="#ffffff" stroke="#D3D8E0"/>
+
+  <rect x="224" y="722" width="120" height="34" rx="9" fill="url(#btn)"/>
+  <text x="284" y="744" text-anchor="middle" font-size="13.5" font-weight="600" fill="#ffffff">Approve</text>
+  <rect x="356" y="722" width="120" height="34" rx="9" fill="url(#reject)"/>
+  <text x="416" y="744" text-anchor="middle" font-size="13.5" font-weight="600" fill="#ffffff">Reject</text>
+</svg>

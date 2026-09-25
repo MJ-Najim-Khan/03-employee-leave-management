@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1040" viewBox="0 0 1200 1040" font-family="-apple-system, 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="btn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#12876F"/>
+      <stop offset="100%" stop-color="#0E6B5C"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1040" fill="#F4F5F7"/>
+
+  <!-- Topbar -->
+  <rect width="1200" height="60" fill="#12141C"/>
+  <rect x="24" y="25" width="10" height="10" rx="3" fill="#7C3AED"/>
+  <text x="44" y="36" font-size="15" font-weight="600" fill="#F5F5F4">Workspace</text>
+  <rect x="1042" y="20" width="64" height="20" rx="10" fill="#F3EEFE"/>
+  <text x="1074" y="34" text-anchor="middle" font-size="12.5" font-weight="600" fill="#7C3AED">Admin</text>
+  <circle cx="1128" cy="30" r="15" fill="none" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="1128" y="35" text-anchor="middle" font-size="11.5" font-weight="700" fill="#F5F5F4">A</text>
+  <text x="1160" y="35" font-size="13" font-weight="500" fill="#E5E5E3">Log out</text>
+
+  <text x="200" y="108" font-size="20" font-weight="600" fill="#1C2430">Admin Dashboard</text>
+
+  <!-- Summary -->
+  <rect x="200" y="122" width="160" height="86" rx="9" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="216" y="146" font-size="12" font-weight="500" fill="#667085">Total Users</text>
+  <text x="216" y="186" font-size="26" font-weight="650" fill="#1C2430">24</text>
+
+  <rect x="376" y="122" width="160" height="86" rx="9" fill="#E8F3F0" stroke="#CDE7E0"/>
+  <text x="392" y="146" font-size="12" font-weight="500" fill="#667085">Active Users</text>
+  <text x="392" y="186" font-size="34" font-weight="650" fill="#1C2430">21</text>
+
+  <rect x="552" y="122" width="160" height="86" rx="9" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="568" y="146" font-size="12" font-weight="500" fill="#667085">Employees</text>
+  <text x="568" y="186" font-size="26" font-weight="650" fill="#1C2430">18</text>
+
+  <rect x="728" y="122" width="160" height="86" rx="9" fill="#FDF0E1" stroke="#F1E0C6"/>
+  <text x="744" y="146" font-size="12" font-weight="500" fill="#667085">Pending Leaves</text>
+  <text x="744" y="186" font-size="26" font-weight="650" fill="#1C2430">4</text>
+
+  <rect x="904" y="122" width="96" height="86" rx="9" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="920" y="146" font-size="12" font-weight="500" fill="#667085">Documents</text>
+  <text x="920" y="186" font-size="26" font-weight="650" fill="#1C2430">9</text>
+
+  <!-- Employees -->
+  <rect x="200" y="236" width="800" height="170" rx="14" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="224" y="268" font-size="17" font-weight="600" fill="#1C2430">Employees</text>
+  <text x="960" y="268" font-size="13" font-weight="600" fill="#667085">18</text>
+  <text x="224" y="300" font-size="13.5" fill="#1C2430"><tspan font-weight="600">EMP001</tspan> - Jane Doe</text>
+  <rect x="916" y="286" width="60" height="20" rx="10" fill="#E8F3F0"/>
+  <text x="946" y="300" text-anchor="middle" font-size="12" font-weight="600" fill="#0B4A3F">Active</text>
+  <text x="224" y="330" font-size="13.5" fill="#1C2430"><tspan font-weight="600">EMP002</tspan> - John Smith</text>
+  <rect x="916" y="316" width="60" height="20" rx="10" fill="#E8F3F0"/>
+  <text x="946" y="330" text-anchor="middle" font-size="12" font-weight="600" fill="#0B4A3F">Active</text>
+  <text x="224" y="360" font-size="13.5" fill="#1C2430"><tspan font-weight="600">EMP003</tspan> - Alice Wong</text>
+  <rect x="916" y="346" width="60" height="20" rx="10" fill="#F4F5F7"/>
+  <text x="946" y="360" text-anchor="middle" font-size="12" font-weight="600" fill="#667085">Inactive</text>
+
+  <!-- Departments -->
+  <rect x="200" y="430" width="800" height="180" rx="14" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="224" y="462" font-size="17" font-weight="600" fill="#1C2430">Departments</text>
+  <text x="960" y="462" font-size="13" font-weight="600" fill="#667085">4</text>
+  <text x="224" y="494" font-size="13.5" fill="#1C2430">IT</text>
+  <text x="224" y="520" font-size="13.5" fill="#1C2430">HR</text>
+  <text x="224" y="546" font-size="13.5" fill="#1C2430">Finance</text>
+  <text x="224" y="572" font-size="13.5" fill="#1C2430">Sales</text>
+
+  <text x="400" y="470" font-size="12.5" font-weight="600" fill="#667085">Department name</text>
+  <rect x="400" y="480" width="240" height="40" rx="9" fill="#ffffff" stroke="#D3D8E0"/>
+  <rect x="650" y="480" width="140" height="40" rx="9" fill="url(#btn)"/>
+  <text x="720" y="505" text-anchor="middle" font-size="13.5" font-weight="600" fill="#ffffff">Add department</text>
+
+  <!-- Leave types -->
+  <rect x="200" y="634" width="800" height="170" rx="14" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="224" y="666" font-size="17" font-weight="600" fill="#1C2430">Leave Types</text>
+  <text x="960" y="666" font-size="13" font-weight="600" fill="#667085">3</text>
+  <text x="224" y="698" font-size="13.5" fill="#1C2430">Casual Leave</text>
+  <text x="920" y="698" font-size="13.5" fill="#667085">12 days</text>
+  <text x="224" y="724" font-size="13.5" fill="#1C2430">Sick Leave</text>
+  <text x="920" y="724" font-size="13.5" fill="#667085">10 days</text>
+  <text x="224" y="750" font-size="13.5" fill="#1C2430">Earned Leave</text>
+  <text x="920" y="750" font-size="13.5" fill="#667085">15 days</text>
+
+  <!-- Users -->
+  <rect x="200" y="828" width="800" height="180" rx="14" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="224" y="860" font-size="17" font-weight="600" fill="#1C2430">Users</text>
+  <text x="960" y="860" font-size="13" font-weight="600" fill="#667085">24</text>
+  <text x="224" y="892" font-size="13.5" fill="#1C2430"><tspan font-weight="600">jane.doe</tspan> · jane@example.com</text>
+  <rect x="880" y="878" width="60" height="20" rx="10" fill="#E8F3F0"/>
+  <text x="910" y="892" text-anchor="middle" font-size="12" font-weight="600" fill="#0B4A3F">Active</text>
+  <text x="224" y="922" font-size="13.5" fill="#1C2430"><tspan font-weight="600">john.smith</tspan> · john@example.com</text>
+  <rect x="880" y="908" width="60" height="20" rx="10" fill="#E8F3F0"/>
+  <text x="910" y="922" text-anchor="middle" font-size="12" font-weight="600" fill="#0B4A3F">Active</text>
+</svg>

@@ -5,21 +5,21 @@ export const getToken = () => {
   );
 };
 
-export const getUserRole = () => {
+export const getUserRole = (token) => {
   const user = JSON.parse(localStorage.getItem("user") || "null");
 
   if (user?.role) {
     return user.role.toUpperCase();
   }
 
-  const token = getToken();
+  const accessToken = token || getToken();
 
-  if (!token) {
+  if (!accessToken) {
     return null;
   }
 
   try {
-    const payload = JSON.parse(atob(token.split(".")[1]));
+    const payload = JSON.parse(atob(accessToken.split(".")[1]));
 
     return (
       payload.role ||

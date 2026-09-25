@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1100" viewBox="0 0 1200 1100" font-family="-apple-system, 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="btn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#12876F"/>
+      <stop offset="100%" stop-color="#0E6B5C"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1100" fill="#F4F5F7"/>
+
+  <!-- Topbar -->
+  <rect width="1200" height="60" fill="#12141C"/>
+  <rect x="24" y="25" width="10" height="10" rx="3" fill="#3B7A57"/>
+  <text x="44" y="36" font-size="15" font-weight="600" fill="#F5F5F4">Workspace</text>
+  <rect x="1030" y="20" width="76" height="20" rx="10" fill="#EAF5EE"/>
+  <text x="1068" y="34" text-anchor="middle" font-size="12.5" font-weight="600" fill="#3B7A57">Employee</text>
+  <circle cx="1128" cy="30" r="15" fill="none" stroke="#3B7A57" stroke-width="1.5"/>
+  <text x="1128" y="35" text-anchor="middle" font-size="11.5" font-weight="700" fill="#F5F5F4">E</text>
+  <text x="1160" y="35" font-size="13" font-weight="500" fill="#E5E5E3">Log out</text>
+
+  <!-- Dashboard header -->
+  <text x="200" y="108" font-size="20" font-weight="600" fill="#1C2430">Employee Dashboard</text>
+  <text x="940" y="100" font-size="12.5" font-weight="600" fill="#667085">Employee ID</text>
+  <rect x="1020" y="84" width="72" height="28" rx="7" fill="#ffffff" stroke="#D3D8E0"/>
+  <text x="1056" y="103" text-anchor="middle" font-size="13.5" fill="#1C2430">1</text>
+
+  <!-- Summary cards -->
+  <rect x="200" y="122" width="184" height="86" rx="9" fill="#FDF0E1" stroke="#F1E0C6"/>
+  <text x="216" y="146" font-size="12" font-weight="500" fill="#667085">Pending</text>
+  <text x="216" y="186" font-size="26" font-weight="650" fill="#1C2430">2</text>
+
+  <rect x="400" y="122" width="184" height="86" rx="9" fill="#E8F3F0" stroke="#CDE7E0"/>
+  <text x="416" y="146" font-size="12" font-weight="500" fill="#667085">Approved</text>
+  <text x="416" y="186" font-size="26" font-weight="650" fill="#1C2430">5</text>
+
+  <rect x="600" y="122" width="184" height="86" rx="9" fill="#FBEAE9" stroke="#F3C7C3"/>
+  <text x="616" y="146" font-size="12" font-weight="500" fill="#667085">Rejected</text>
+  <text x="616" y="186" font-size="26" font-weight="650" fill="#1C2430">1</text>
+
+  <rect x="800" y="122" width="200" height="86" rx="9" fill="#E8F3F0" stroke="#CDE7E0"/>
+  <text x="816" y="146" font-size="12" font-weight="500" fill="#667085">Remaining Days</text>
+  <text x="816" y="186" font-size="34" font-weight="650" fill="#1C2430">27</text>
+
+  <!-- Leave balance -->
+  <text x="200" y="252" font-size="16" font-weight="600" fill="#1C2430">Leave Balance</text>
+
+  <rect x="200" y="268" width="320" height="132" rx="9" fill="#ffffff" stroke="#E2E5EA"/>
+  <rect x="200" y="268" width="320" height="2" fill="#0E6B5C"/>
+  <text x="218" y="296" font-size="13" font-weight="600" fill="#667085">Casual Leave</text>
+  <text x="218" y="336" font-size="30" font-weight="700" fill="#1C2430">10</text>
+  <text x="218" y="352" font-size="12.5" fill="#667085">days remaining</text>
+  <text x="218" y="384" font-size="12" fill="#667085">2 used of 12</text>
+
+  <rect x="540" y="268" width="320" height="132" rx="9" fill="#ffffff" stroke="#E2E5EA"/>
+  <rect x="540" y="268" width="320" height="2" fill="#2563A8"/>
+  <text x="558" y="296" font-size="13" font-weight="600" fill="#667085">Sick Leave</text>
+  <text x="558" y="336" font-size="30" font-weight="700" fill="#1C2430">9</text>
+  <text x="558" y="352" font-size="12.5" fill="#667085">days remaining</text>
+  <text x="558" y="384" font-size="12" fill="#667085">1 used of 10</text>
+
+  <rect x="880" y="268" width="120" height="132" rx="9" fill="#ffffff" stroke="#E2E5EA"/>
+  <rect x="880" y="268" width="120" height="2" fill="#B45309"/>
+  <text x="898" y="296" font-size="13" font-weight="600" fill="#667085">Earned Leave</text>
+  <text x="898" y="336" font-size="30" font-weight="700" fill="#1C2430">8</text>
+  <text x="898" y="352" font-size="12.5" fill="#667085">days remaining</text>
+  <text x="898" y="384" font-size="12" fill="#667085">7 used of 15</text>
+
+  <!-- Apply leave -->
+  <rect x="200" y="424" width="800" height="300" rx="14" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="224" y="456" font-size="16" font-weight="600" fill="#1C2430">Apply Leave</text>
+
+  <text x="224" y="490" font-size="12.5" font-weight="600" fill="#667085">Leave Type</text>
+  <rect x="224" y="500" width="360" height="42" rx="9" fill="#ffffff" stroke="#D3D8E0"/>
+  <text x="238" y="526" font-size="13.5" fill="#1C2430">Casual Leave</text>
+
+  <text x="600" y="490" font-size="12.5" font-weight="600" fill="#667085">From Date</text>
+  <rect x="600" y="500" width="180" height="42" rx="9" fill="#ffffff" stroke="#D3D8E0"/>
+  <text x="614" y="526" font-size="13.5" fill="#1C2430">2026-06-10</text>
+
+  <text x="800" y="490" font-size="12.5" font-weight="600" fill="#667085">To Date</text>
+  <rect x="800" y="500" width="200" height="42" rx="9" fill="#ffffff" stroke="#D3D8E0"/>
+  <text x="814" y="526" font-size="13.5" fill="#1C2430">2026-06-12</text>
+
+  <text x="224" y="572" font-size="12.5" font-weight="600" fill="#667085">Reason (optional)</text>
+  <rect x="224" y="582" width="776" height="80" rx="9" fill="#ffffff" stroke="#D3D8E0"/>
+  <text x="238" y="606" font-size="13.5" fill="#1C2430">Family function</text>
+
+  <rect x="224" y="676" width="776" height="34" rx="9" fill="url(#btn)"/>
+  <text x="612" y="698" text-anchor="middle" font-size="13.5" font-weight="600" fill="#ffffff">Apply Leave</text>
+
+  <!-- Documents -->
+  <rect x="200" y="748" width="800" height="150" rx="14" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="224" y="780" font-size="16" font-weight="600" fill="#1C2430">My Documents</text>
+  <rect x="224" y="798" width="34" height="34" rx="7" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="241" y="820" text-anchor="middle" font-size="9" font-weight="700" fill="#0E6B5C">PDF</text>
+  <text x="270" y="816" font-size="13" font-weight="500" fill="#1C2430">medical-certificate.pdf</text>
+  <text x="270" y="830" font-size="11.5" fill="#667085">Uploaded Jun 3, 2026, 9:41 AM</text>
+
+  <!-- Leave history -->
+  <rect x="200" y="922" width="800" height="150" rx="14" fill="#ffffff" stroke="#E2E5EA"/>
+  <text x="224" y="954" font-size="16" font-weight="600" fill="#1C2430">Leave History</text>
+  <text x="224" y="984" font-size="14.5" font-weight="600" fill="#1C2430">Leave Request #12</text>
+  <rect x="916" y="968" width="60" height="20" rx="10" fill="#FDF0E1"/>
+  <text x="946" y="982" text-anchor="middle" font-size="12" font-weight="600" fill="#92400E">Pending</text>
+  <text x="224" y="1008" font-size="12.5" fill="#667085">Casual Leave · Jun 10, 2026 – Jun 12, 2026</text>
+  <text x="224" y="1028" font-size="13.5" fill="#1C2430">Family function</text>
+  <rect x="224" y="1040" width="120" height="28" rx="9" fill="url(#btn)"/>
+  <text x="284" y="1058" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Cancel leave</text>
+</svg>
