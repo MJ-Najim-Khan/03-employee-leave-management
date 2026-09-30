@@ -1,0 +1,108 @@
+# ==============================
+# Python
+# ==============================
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Logs
+*.log
+logs/
+
+
+# ==============================
+# FastAPI / Uvicorn
+# ==============================
+
+*.sqlite3
+*.db
+
+
+# ==============================
+# Node.js / React / Vite
+# ==============================
+
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Frontend environment files
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+
+# ==============================
+# VS Code
+# ==============================
+
+.vscode/
+*.code-workspace
+
+
+# ==============================
+# OS files
+# ==============================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ==============================
+# Temporary files
+# ==============================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+
+# ==============================
+# AWS / Deployment
+# ==============================
+
+*.pem
+*.key
+
+# Terraform state, if used later
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+
+# ==============================
+# Local secrets / credentials
+# ==============================
+
+credentials
+credentials.json
+secrets.json
